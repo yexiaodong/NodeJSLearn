@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试node接口</title>
+    <script src="javascript/jquery-1.11.3.js"></script>
+    <script>
+        function testAjax(type,url,param) {
+            url = 'http://localhost:3002' + url;
+            $.ajax({
+                type: type,
+                async: 'true',
+                contentType: "application/json",
+                url: url,
+                data: param,
+                dataType: 'json',
+                beforeSend: function () { },
+                success: function (data) {
+                    console.log('通信成功',data);
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    console.log("返回值："+xhr.responseText +"状态码：" + xhr.readyState+"status:"+xhr.status+"textStatus:"+textStatus);
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <button onclick="testAjax('post','','')">测试Post请求</button>
+    <button onclick="testAjax('post','/user','')">测试Post请求-/user</button>
+    <br><br>
+    <button onclick="testAjax('get','','')">测试get请求</button>
+    <button onclick="testAjax('get','/user','')">测试get请求-/user</button>
+    <button onclick="testAjax('get','/fs','')">测试get请求-读取json文件</button>
+
+    <section>
+        <h1>app-route.js</h1>
+        <p>通过app.route方法实现：详情、新增、修改等功能。</p>
+        <button onclick="testAjax('get','/book','')">测试Post请求</button>
+        <button onclick="testAjax('post','/book','')">测试Post请求</button>
+        <button onclick="testAjax('put','/book','')">测试Post请求</button>
+    </section>
+</body>
+</html>

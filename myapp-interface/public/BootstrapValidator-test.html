@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Boostrap-表单验证-测试不加验证</title>
+    <link href="stylesheet/bootstrap-3.3.7.min.css" rel="stylesheet">
+
+    <style>
+        body{
+            padding:20px;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h1>样例</h1>
+        <form id="myForm" action="/form" method="post">
+            <div class="form-group">
+                <input class="from-control" type="text" name="username" id="username" placeholder="用户名">
+            </div>
+            <button id="onMySubmit" type="button">提交</button>
+            <button id="onValid" type="button">验证</button>
+            <button type="submit">submit</button>
+            <input type="submit" value="input-提交">
+        </form>
+    </section>
+
+<script src="javascript/jquery-1.11.3.js"></script>
+
+<script>
+    $(function () {
+
+        //判断表单表单是否提交
+        $('#myForm').submit(function (e) {
+            console.log('表单提交',e);
+            alert('d');
+        })
+    });
+
+    //提交表单触发验证
+    $('#onMySubmit').on('click',function () {
+        $('#myForm').submit();
+    });
+
+
+</script>
+</body>
+</html>
