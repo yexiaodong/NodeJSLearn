@@ -34,11 +34,24 @@
     <button onclick="testAjax('get','/fs','')">测试get请求-读取json文件</button>
 
     <section>
-        <h1>app-route.js</h1>
+        <h1>app-route.js：路由</h1>
         <p>通过app.route方法实现：详情、新增、修改等功能。</p>
         <button onclick="testAjax('get','/book','')">测试Post请求</button>
         <button onclick="testAjax('post','/book','')">测试Post请求</button>
         <button onclick="testAjax('put','/book','')">测试Post请求</button>
+    </section>
+
+    <section>
+        <h1>app-middleware.js：中间件</h1>
+        <ul>
+            <li><a href="/user/0">1./user/id ：普通中间件的使用；</a></li>
+            <li><a href="/user">/user ：一组中间件的使用；</a></li>
+            <li><a href="/username/0">/username/id ：终止请求-响应循环；</a></li>
+            <li><a href="book/1">/book/id ：跳过剩余中间件；</a></li>
+            <li><a href="/school/2">路由级中间件</a></li>
+        </ul>
+        <h2>app-middleware-500.js：错误中间件</h2>
+        <a href="/error-500">错误中间件</a>
     </section>
 </body>
 </html>
