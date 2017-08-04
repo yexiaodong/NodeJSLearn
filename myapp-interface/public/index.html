@@ -19,7 +19,7 @@
                     console.log('通信成功',data);
                 },
                 error: function (xhr, textStatus, errorThrown) {
-                    console.log("返回值："+xhr.responseText +"状态码：" + xhr.readyState+"status:"+xhr.status+"textStatus:"+textStatus);
+                    console.log("返回值："+xhr.responseText +"；状态码：" + xhr.readyState+"；status:"+xhr.status+"；textStatus:"+textStatus);
                 }
             });
         }
@@ -52,6 +52,15 @@
         </ul>
         <h2>app-middleware-500.js：错误中间件</h2>
         <a href="/error-500">错误中间件</a>
+    </section>
+
+    <section>
+        <h1>app-error.js</h1>
+        <ul>
+            <li><a href="/testError">错误-页面跳转；</a></li>
+            <li> <button onclick="testAjax('get','/testError','')">错误-Ajax</button></li>
+            <li> <button onclick="testAjax('get','/a_l','')">错误-Ajax-没有该接口</button></li>
+        </ul>
     </section>
 </body>
 </html>
