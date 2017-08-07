@@ -7,8 +7,8 @@ app.use(express.static('public'));
 //模板引擎
 app.set('views','./views');//放模板文件的目录
 app.set('view engine','jade');//使用模板引擎
-app.get('/myTest',function (req,res) {
-    res.render('myTest',{title:'模板引擎',message:'使用模板myTest.jade'});
+app.get('/myTestJade',function (req,res) {
+    res.render('myTestJade',{title:'模板引擎',message:'使用模板myTestJade.jade'});
 })
 
 //监听3002
