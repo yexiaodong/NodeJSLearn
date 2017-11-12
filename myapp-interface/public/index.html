@@ -6,7 +6,7 @@
     <script src="javascript/jquery-1.11.3.js"></script>
     <script>
         function testAjax(type,url,param) {
-            url = 'http://localhost:3002' + url;
+            url = 'http://127.0.0.1:3002' + url;
             $.ajax({
                 type: type,
                 async: 'true',
@@ -70,6 +70,11 @@
     <section>
         <h1>app-jade.js：模板引擎</h1>
         <a href="/myTestJade">跳转-模板引擎</a>
+    </section>
+
+    <section>
+        <h1>app-ajax.js：跨域请求</h1>
+        <button onclick="testAjax('get','/user','')">测试get请求-/user</button>
     </section>
 </body>
 </html>
