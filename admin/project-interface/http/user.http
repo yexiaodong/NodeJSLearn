@@ -1,0 +1,7 @@
+
+#获取单个用户
+get http://localhost:3002/user
+
+###
+#获取用户列表
+get http://localhost:3002/user/list
