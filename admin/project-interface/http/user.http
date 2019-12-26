@@ -5,3 +5,14 @@ get http://localhost:3002/user
 ###
 #获取用户列表
 get http://localhost:3002/user/list
+
+###
+#添加用户
+post http://localhost:3002/user/add
+Content-Type: application/json
+
+{
+    "name":"叶晓东",
+    "account":"yexiaodonog",
+    "phone":"18825195515"
+}
