@@ -1,0 +1,35 @@
+
+@url=http://localhost:3002
+@json=Content-Type:application/json
+Bearer + 空格 是为了规范
+@token=Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlMDQ4MGZjNmU1NDg0NGY0NDMyZjQ3YyIsImlhdCI6MTU3NzM3MjcyNn0.WKIkO3xFOTgE-ZG7xP8unR8MN8lz7e7a0f4axd0Kqg4
+###
+get {{url}}
+
+
+###注册
+post {{url}}/register
+{{json}}
+
+{
+    "username":"seaton4",
+    "password":"123456"
+}
+
+
+### 登陆
+post {{url}}/login
+{{json}}
+
+{
+    "username":"seaton3",
+    "password":"123456"
+}
+
+###查看所有用户
+get {{url}}/users
+{{token}}
+
+###查看某个用户的信息
+get {{url}}/profile
+{{token}}
