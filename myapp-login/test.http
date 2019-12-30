@@ -27,9 +27,9 @@ post {{url}}/login
 }
 
 ###查看所有用户
-get {{url}}/users
+get {{url}}/user/list
 {{token}}
 
 ###查看某个用户的信息
-get {{url}}/profile
+get {{url}}/user/profile
 {{token}}

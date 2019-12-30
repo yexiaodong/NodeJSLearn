@@ -1,22 +1,14 @@
 var express = require('express')
 const jwt = require('jsonwebtoken')
 const { User } = require('./model')
-const SECRET = 'ASDFASDFAS'//类似密钥，尽量不要上传到代码中，不要泄露！！！！
+const { SECRET } = require('./tools/config')
+const { auth } = require('./middleware/auth')
+//引入各个模块的路由处理（即接口）
+const user = require('./router/user')
 
 var app = express()
 app.use(express.json()) //开启json解析，.http文件的最后一个post参数不可带“,”，否则解析错误
 
-//中间件
-const auth = async (req, res, next) => {
-  /*
-   1.移除为了规范而加上的 Beaer和空格
-   2.String：转换字符串，确保authorization是字符串类型
- */
-  const raw = String(req.headers.authorization).split(' ').pop()
-  const token = jwt.verify(raw, SECRET)
-  req.user = await User.findById(token.id)
-  next()
-}
 
 app.get('/', function (req, res) {
   res.send({ data: 'Got a get request at /' })
@@ -47,16 +39,9 @@ app.post('/login', async (req, res) => {
   }, SECRET)
   res.send({ data: { user, token: token } })
 })
-//查询所有用户
-app.get('/users', async (req, res) => {
-  const user = await User.find()
-  res.send({ data: user })
-})
-//查询某个用户
-app.get('/profile',auth, async (req, res) => {
-  res.send({ data: req.user })
-})
 
+//使用各个模块的路由处理
+app.use('/user', user)
 
 
 var server = app.listen(3002, function () {
