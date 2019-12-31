@@ -5,6 +5,7 @@ const { SECRET } = require('./tools/config')
 const { auth } = require('./middleware/auth')
 //引入各个模块的路由处理（即接口）
 const user = require('./router/user')
+const news = require('./router/news')
 
 var app = express()
 app.use(express.json()) //开启json解析，.http文件的最后一个post参数不可带“,”，否则解析错误
@@ -42,6 +43,7 @@ app.post('/login', async (req, res) => {
 
 //使用各个模块的路由处理
 app.use('/user', user)
+app.use('/news', news)
 
 
 var server = app.listen(3002, function () {

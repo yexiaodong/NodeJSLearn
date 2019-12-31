@@ -33,3 +33,39 @@ get {{url}}/user/list
 ###查看某个用户的信息
 get {{url}}/user/profile
 {{token}}
+
+### 新闻-新增
+post {{url}}/news
+{{json}}
+{{token}}
+
+{
+    "title":"新闻标题2",
+    "type":"css类",
+    "content":"<p>这是内容</p>"
+}
+
+### 新闻-修改
+put {{url}}/news/5e0aa61cfce0fc1098b96226
+{{json}}
+{{token}}
+
+{
+    "title":"新闻标题2",
+    "type":"css类",
+    "content":"<p>这是内容2</p>"
+}
+
+
+### 新闻-删除
+delete {{url}}/news/5e0aa61cfce0fc1098b96226
+{{token}}
+
+
+### 新闻-查询-列表
+get {{url}}/news
+{{token}}
+
+### 新闻-查询-详情
+get {{url}}/news/5e0aa61cfce0fc1098b96226
+{{token}}

@@ -6,6 +6,7 @@ mongoose.connect('mongodb://localhost:27017/express-login',{
     useNewUrlParser: true,//新的解析器，如果不加上这个运行会报错
 })
 
+//用户
 const UserSchema = new mongoose.Schema({
     username:{type:String,unique:true},//unique：字段是否唯一。PS：若表的字段已有重复的，该功能不生效，必须删除重复数据
     password:{type:String,set(val){
@@ -14,5 +15,13 @@ const UserSchema = new mongoose.Schema({
     }},
 })
 const User = mongoose.model('User',UserSchema)
-// User.db.dropCollection('users')
-module.exports = { User,}
+// User.db.dropCollection('users')  //删除表
+
+//新闻
+const NewsSchema = new mongoose.Schema({
+    title:{type:String},
+    type:{type:String},
+    content:{type:String}
+})
+const News = mongoose.model('News',NewsSchema)
+module.exports = { User,News }
