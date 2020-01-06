@@ -33,7 +33,15 @@ router.delete('/:id', auth, async (req, res) => {
 
 //查询新闻-列表
 router.get('/', async (req, res) => {
-    const news = await News.find()
+    //sort：排序,-1为倒序，1为正序
+    // const news = await News.find().sort({title:-1})
+
+    //where：查询条件  模糊？？
+    //const news = await News.find().where({type:'css类'})
+
+    //分页 skip：跳过  limit：查询数量
+    const news = await News.find().skip(1).limit(2)
+
     res.send({ data: news })
 })
 
