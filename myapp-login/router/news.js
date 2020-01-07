@@ -24,7 +24,7 @@ router.put('/:id', auth, async (req, res) => {
     res.send({ data: news })
 })
 
-//修改新闻
+//删除新闻
 router.delete('/:id', auth, async (req, res) => {
     const news = await News.findById(req.params.id)
     await news.remove()
@@ -34,10 +34,11 @@ router.delete('/:id', auth, async (req, res) => {
 //查询新闻-列表
 router.get('/', async (req, res) => {
     //sort：排序,-1为倒序，1为正序
-    // const news = await News.find().sort({title:-1})
+    //const news = await News.find().sort({title:-1})
 
-    //where：查询条件  模糊？？
-    //const news = await News.find().where({type:'css类'})
+    //where：查询条件
+    // const news = await News.find().where({type:'css类'})//精确
+    // const news = await News.find().where({type:/css/})//模糊 /:类似sql的%，同时移除引号
 
     //分页 skip：跳过  limit：查询数量
     const news = await News.find().skip(1).limit(2)
